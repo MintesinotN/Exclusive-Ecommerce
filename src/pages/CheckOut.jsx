@@ -113,10 +113,10 @@ const CheckOut = () => {
         <div className='flex justify-between items-center'>
           <input type="radio" name='name' className='w-6 h-6 cursor-pointer' />
           <div className='flex gap-2'>
-            <img src="./src/assets/visa1.png" alt="" />
-            <img src="./src/assets/visa2.png" alt="" />
-            <img src="./src/assets/visa3.png" alt="" />
-            <img src="./src/assets/visa4.png" alt="" />
+            <img src="./assets/visa1.png" alt="" />
+            <img src="./assets/visa2.png" alt="" />
+            <img src="./assets/visa3.png" alt="" />
+            <img src="./assets/visa4.png" alt="" />
           </div>
         </div>
         <input type="radio" name='name' className='w-6 h-6 cursor-pointer' />

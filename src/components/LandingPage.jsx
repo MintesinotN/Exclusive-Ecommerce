@@ -37,7 +37,7 @@ const LandingPage = () => {
                     <IoIosArrowRoundForward size={24} />
                 </div>
                 </div>
-                <img src="./src/assets/Landing_page.png" alt="" />
+                <img src="./assets/Landing.png" alt="" />
             </div>
             <div className='flex justify-center gap-3 mb-4'>
                 <p className='w-3 h-3 rounded-full bg-green-700'></p>

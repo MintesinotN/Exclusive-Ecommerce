@@ -17,19 +17,19 @@ const Browse = () => {
   const CategoriesList = [
     {
       category: "men's clothing",
-      image:'./src/assets/men.png'
+      image:'./assets/men.png'
     },
     {
       category: "women's clothing",
-      image:'./src/assets/women.png'
+      image:'./assets/women.png'
     },
     {
       category: 'jewelery',
-      image:'./src/assets/jewelery.png'
+      image:'./assets/jewelery.png'
     },
     {
       category: "electronics",
-      image:'./src/assets/electronics.png'
+      image:'./assets/electronics.png'
     }
   ];
 
@@ -84,7 +84,7 @@ const Browse = () => {
           </div>
           <Button content='Buy Now!' background='bg-orange-400' text='text-white' border='' />
           </div>
-          <img src="./src/assets/Music.png" alt="Musical Instrument" className='mx-auto' />
+          <img src="./assets/Music.png" alt="Musical Instrument" className='mx-auto' />
         </div>
         <div className='my-12'>
         <NoteNB value='Our Products' />
@@ -121,10 +121,10 @@ const Browse = () => {
         </div>
         </div>
         <div className='grid grid-cols-4 grid-rows-4 p-8 -mx-2 sm:mx-0'>
-            <img src='./src/assets/Arrival1.png' className='bg-black col-span-2 row-span-4' />
-            <img src='./src/assets/Arrival2.png' className='bg-black col-span-2 row-span-2' />
-            <img src='./src/assets/Arrival3.png' className='bg-black row-span-2' />
-            <img src='./src/assets/Arrival4.png' className='bg-black row-span-2' />
+            <img src='./assets/Arrival1.png' className='bg-black col-span-2 row-span-4' />
+            <img src='./assets/Arrival2.png' className='bg-black col-span-2 row-span-2' />
+            <img src='./assets/Arrival3.png' className='bg-black row-span-2' />
+            <img src='./assets/Arrival4.png' className='bg-black row-span-2' />
         </div>
         <ServiceTipsContainer />
     </div>

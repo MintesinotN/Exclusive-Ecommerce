@@ -53,8 +53,8 @@ const Footer = () => {
             <div className='flex gap-2'>
             <BsQrCode size={96} />
             <div className='flex flex-col justify-between'>
-                <img src="./src/assets/Google_play.png" width={130} alt="" />
-                <img src="./src/assets/App_store.png" width={130} alt="" />
+                <img src="./assets/Google_play.png" width={130} alt="" />
+                <img src="./assets/App_store.png" width={130} alt="" />
             </div>
             </div>
             <div className='flex gap-5'>

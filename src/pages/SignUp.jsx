@@ -104,7 +104,7 @@ const SignUp = () => {
   return (
     <div className='xl:mx-32 mx-2 md:mx-8 dark:text-white py-12'>
       <div className='flex max-sm:flex-col gap-y-12 items-center md:gap-8 gap-4 lg:gap-20'>
-        <img src="./src/assets/Sign_up.png" alt="" className='xl:-ml-32 sm:max-md:w-72 max-xl:w-96 max-xl:h-96' />
+        <img src="./assets/Sign_up.png" alt="" className='xl:-ml-32 sm:max-md:w-72 max-xl:w-96 max-xl:h-96' />
         <form onSubmit={(e) => e.preventDefault()} className='flex flex-col'>
           <h3 className='font-medium text-2xl'>{register ? 'Log in to Exclusive' : 'Create an account'}</h3>
           <p className='pt-2 pb-5'>Enter your details below</p>
