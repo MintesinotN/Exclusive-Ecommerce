@@ -1,8 +1,8 @@
 import React from 'react'
-import ServiceTips from './serviceTips'
 import { TbTruckDelivery } from "react-icons/tb";
 import { PiHeadset } from "react-icons/pi";
 import { VscPass } from "react-icons/vsc";
+import ServiceTips from './ServiceTips';
 
 const ServiceTipsContainer = () => {
   return (
