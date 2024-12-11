@@ -30,10 +30,10 @@ const ProductDetails = () => {
     <div className='xl:-ml-24 lg:max-xl:mx-32 grid grid-cols-3 py-12 gap-8 max-xl:flex max-xl:flex-col'>
         <div className='flex max-sm:flex-col-reverse col-span-2 gap-2 h-full'>
         <div className='basis-1/4 grid max-sm:grid-cols-4 grid-cols-1 gap-2'>
-        <div className='bg-gray-100 h-20'></div>
-        <div className='bg-gray-100 h-20'></div>
-        <div className='bg-gray-100 h-20'></div>
-        <div className='bg-gray-100 h-20'></div>
+        <div className='bg-gray-100 max-sm:h-20'></div>
+        <div className='bg-gray-100 max-sm:h-20'></div>
+        <div className='bg-gray-100 max-sm:h-20'></div>
+        <div className='bg-gray-100 max-sm:h-20'></div>
         </div>
         <div className='basis-3/4 bg-gray-100 flex justify-center items-center py-12 lg:max-xl:h-[500px]'>
         <img src={detail.image} alt="" width={300} className='sm:max-xl:h-96' />
