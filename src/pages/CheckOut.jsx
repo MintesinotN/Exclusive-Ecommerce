@@ -124,7 +124,7 @@ const CheckOut = () => {
       </div>
       <div className='items-start flex gap-4 flex-col sm:flex-row py-8'>
         <label name='coup' className='px-4 py-3 rounded-sm sm:w-full dark:border-none border-2 border-gray-400 dark:bg-white'>
-          <input type="text" name='coup' placeholder='Coupon Code' className='outline-none outline' />
+          <input type="text" name='coup' placeholder='Coupon Code' className='outline-none outline dark:text-black' />
         </label>
         <Button content='Apply Coupon' background='bg-green-800' text='text-white' border='' />
       </div>

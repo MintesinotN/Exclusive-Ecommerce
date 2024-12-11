@@ -7,7 +7,7 @@ const InputField = ({name,value,onchange,labelCol='',label='',placeholder,requir
     <label className='flex flex-col gap-1'>
     <p className={labelCol}>{label}</p>
     <div className='px-4 py-3 bg-gray-100 rounded-sm'>
-    <input name={name} value={value} onChange={onchange} type="text" placeholder={placeholder} required={required} className='placeholder: outline-none outline bg-gray-100' />
+    <input name={name} value={value} onChange={onchange} type="text" placeholder={placeholder} required={required} className='placeholder: outline-none outline bg-gray-100 dark:text-black' />
     </div>
     </label>
   )

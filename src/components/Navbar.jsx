@@ -58,7 +58,7 @@ const Navbar = () => {
         </div>
         <div className='flex gap-4 items-center'>
             <label className='sm:flex items-center hidden bg-gray-100 py-2 px-4' htmlFor="search">
-                <input className='bg-slate-100 outline-none w-52 placeholder:text-gray-500' type="text" id='search' placeholder='What are you looking for?' />
+                <input className='bg-slate-100 dark:text-black outline-none w-52 placeholder:text-gray-500' type="text" id='search' placeholder='What are you looking for?' />
                 <HiOutlineSearch className='dark:text-black' size={20} />
             </label>
             <IoIosHeartEmpty size={24} />
