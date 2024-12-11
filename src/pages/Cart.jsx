@@ -17,15 +17,12 @@ const Cart = () => {
           const res = await axios.patch(newUrl, {
             cartData: cart
           });
-          console.log(res.status)
           alert("Cart data added successfully!");
         } catch (error) {
           console.error("Error adding cart data:", error.message);
           alert("Go to SignUp and Login First!")
         }
       };
-
-      console.log("cartttttt",cart);
 
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>

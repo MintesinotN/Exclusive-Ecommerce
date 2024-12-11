@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const Logout = () => {
     setAccount('hidden');
-    setUserId('');
+    setUserId(0);
     sessionStorage.removeItem("cart");
     setCart([]);
   }

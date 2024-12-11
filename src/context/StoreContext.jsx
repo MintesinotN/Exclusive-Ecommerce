@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
     const url = import.meta.env.VITE_BACKEND_URL;
     const [allProducts, setAllProducts] = useState([]);
     const [selected, setSelected] = useState('')
-    const [userId, setUserId] = useState(()=>sessionStorage.getItem("userId") || "");
+    const [userId, setUserId] = useState(()=>sessionStorage.getItem("userId") || 0);
     const [sum,setSum] = useState(0);
     const [cart, setCart] = useState(() => {
     const savedCart = sessionStorage.getItem("cart");
