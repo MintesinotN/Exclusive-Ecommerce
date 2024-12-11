@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IoIosStar } from "react-icons/io";
+import { StoreContext } from '../context/StoreContext'
 
 const EachProduct = ({onclick,customVal='',id,image,title,price,rating}) => {
+
+  const {productDetail} = useContext(StoreContext)
+
   return (
     <div key={id} className='flex flex-col gap-2 font-medium max-w-56'>
         <div className='group flex items-center justify-center py-4 px-2 w-56 h-56 rounded-md border border-black dark:bg-white dark:border-white relative' >
-            <div>
+            <div onClick={()=>{productDetail(id);}}>
             <img src={image} alt={title} className='' width={108} />
             </div>
             <div onClick={onclick} className={`cursor-pointer hidden py-1 justify-center absolute bottom-0 bg-black text-white w-full rounded-md ${customVal}`}>

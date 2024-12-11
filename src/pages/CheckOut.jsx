@@ -83,10 +83,11 @@ const CheckOut = () => {
               );
             }
 
-            const { price, image } = item;
+            const { price, image, category } = item;
 
             return (
               <CheckOutList
+                category={category}
                 image={image}
                 totalPrice={cartItem.count*price}
               />

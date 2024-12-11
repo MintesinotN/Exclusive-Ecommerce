@@ -14,7 +14,7 @@ const CartDescription = ({id,price,image,count}) => {
         <p className='basis-5/12'>
         <img src={image} alt="" width={32} />
         </p>
-        <p className='basis-2/12'>{itemPrice}</p>
+        <p className='basis-2/12'>${itemPrice}</p>
         <div className='basis-3/12'>
         <div className='gap-4 w-fit rounded-md flex items-center border border-gray-400 py-1 px-2'>
         <p>{count}</p>
@@ -28,7 +28,7 @@ const CartDescription = ({id,price,image,count}) => {
         </div>
         </div>
         </div>
-        <p className='basis-1/12 pl-2'>{itemPrice*count}</p>
+        <p className='basis-1/12 pl-2'>${itemPrice*count}</p>
         <p onClick={()=>Remover(id)} className='basis-1/12 text-center'>X</p>
     </div>
   )

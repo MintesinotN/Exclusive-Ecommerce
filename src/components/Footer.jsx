@@ -16,7 +16,7 @@ const Footer = () => {
             <h4 className='text-lg font-medium'>Subscribe</h4>
             <p>Get 10% off your first order</p>
             <div className='flex items-center border-white py-2 px-4 border-2 rounded-sm w-fit'>
-                <input type="text" placeholder='Enter your email' className='bg-black placeholder:text-gray-700 -mr-8' />
+                <input type="text" placeholder='Enter your email' className='bg-black placeholder:text-gray-700 -mr-8 outline outline-none' />
                 <LuSendHorizontal color='white' size={20} />
             </div>
         </div>

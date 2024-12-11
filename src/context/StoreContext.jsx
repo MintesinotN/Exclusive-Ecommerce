@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
+
+    const navigate = useNavigate()
 
     const url = import.meta.env.VITE_BACKEND_URL;
     const [allProducts, setAllProducts] = useState([]);
@@ -14,6 +17,8 @@ const StoreContextProvider = (props) => {
     const savedCart = sessionStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
       });
+
+    const [detail,setDetail] = useState(()=>JSON.parse(sessionStorage.getItem("detail")) || {});
     
     useEffect(()=>sessionStorage.setItem("userId",userId),[userId])
     useEffect(() => {
@@ -47,11 +52,11 @@ const StoreContextProvider = (props) => {
         setSum(totalSum);
       }, [cart]);
 
-    const AddToCart = (itemId) => {
+    const AddToCart = (itemId,countVal) => {
         setCart((prevCart) => 
             prevCart.some((item) => item.id === itemId) 
               ? prevCart 
-              : [...prevCart, { id: itemId, count: 1 }]
+              : [...prevCart, { id: itemId, count: (countVal ? countVal : 1) }]
           );
         }
 
@@ -79,9 +84,20 @@ const StoreContextProvider = (props) => {
         axios.get('https://fakestoreapi.com/products').then((response)=>setAllProducts(response.data))
     },[])
 
+    const productDetail = (itemId) => {
+        const product = allProducts.find(pro => pro.id === itemId);
+        setDetail(product);
+        navigate('/product-details');
+      }
+
+    useEffect(()=>sessionStorage.setItem("detail",JSON.stringify(detail)),[detail])
+
+
     console.log(allProducts)
 
     const contextValue = {
+        detail,
+        productDetail,
         sum,
         Increment,
         Decrement,

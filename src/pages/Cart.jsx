@@ -11,7 +11,7 @@ const Cart = () => {
     const {cart,allProducts,userId,url,sum} = useContext(StoreContext);
 
     const UpdateCart = async () => {
-        const newUrl = `${url}/users/${userId}`;
+        const newUrl = `${url}/users/cart/${userId}`;
 
         try {
           await axios.patch(newUrl, {
