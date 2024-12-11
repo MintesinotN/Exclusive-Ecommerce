@@ -28,20 +28,20 @@ const ProductDetails = () => {
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>
     <p><span className='text-gray-500'>Home / {detail.category} /</span> {detail.title}</p>
     <div className='xl:-ml-24 lg:max-xl:mx-32 grid grid-cols-3 py-12 gap-8 max-xl:flex max-xl:flex-col'>
-        <div className='flex col-span-2 gap-2 h-full'>
-        <div className='basis-1/4 grid grid-cols-1 gap-2'>
-        <div className='bg-gray-100'></div>
-        <div className='bg-gray-100'></div>
-        <div className='bg-gray-100'></div>
-        <div className='bg-gray-100'></div>
+        <div className='flex max-sm:flex-col-reverse col-span-2 gap-2 h-full'>
+        <div className='basis-1/4 grid max-sm:grid-cols-4 grid-cols-1 gap-2'>
+        <div className='bg-gray-100 h-20'></div>
+        <div className='bg-gray-100 h-20'></div>
+        <div className='bg-gray-100 h-20'></div>
+        <div className='bg-gray-100 h-20'></div>
         </div>
         <div className='basis-3/4 bg-gray-100 flex justify-center items-center py-12 lg:max-xl:h-[500px]'>
-        <img src={detail.image} alt="" width={300} className='lg:max-xl:h-96' />
+        <img src={detail.image} alt="" width={300} className='sm:max-xl:h-96' />
         </div>
         </div>
         <div className='grid col-span-1 gap-4'>
         <h2 className='font-medium text-lg'>{detail.title}</h2>
-        <div className='flex items-center gap-1'>
+        <div className='flex flex-wrap items-center gap-1'>
         {[1,2,3,4,5].map((star) => (
             <IoIosStar key={star} className={5 >= star ? 'text-yellow-500' : 'text-gray-300'} />
         ))}
@@ -68,12 +68,13 @@ const ProductDetails = () => {
             <div className='flex items-center justify-center border px-2 py-1 rounded-sm'>XL</div>
           </div>
         </div>
-        <div className='flex gap-2'>
-          <div className='flex border border-black dark:bg-white dark:text-black'>
+        <div className='max-sm:flex-col flex gap-2'>
+          <div className='flex border border-black dark:bg-white dark:text-black min-h-[54px] max-w-60'>
             <div onClick={Decrement} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 text-lg'>-</div>
             <div className='basis-1/2 flex justify-center items-center py-1 border border-black px-12'>{countVal}</div>
             <div onClick={Increment} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 bg-green-700 text-white text-lg'>+</div>
           </div>
+          <div className='flex gap-2'>
           <div onClick={()=>{
             AddToCart(detail.id,countVal);
             setCountVal(1);
@@ -83,6 +84,7 @@ const ProductDetails = () => {
           </div>
           <div className='flex items-center justify-center px-3 rounded-sm border border-black'>
           <IoIosHeartEmpty size={24} />
+          </div>
           </div>
         </div>
         <div className='grid grid-rows-1 gap-3 px-5 py-3 border w-full'>
