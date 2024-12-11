@@ -18,6 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [account,setAccount] = useState('hidden');
+  const [menu,setMenu] = useState('hidden')
   const {userId,setUserId,cart,setCart} = useContext(StoreContext);
 
   const Logout = () => {
@@ -32,7 +33,36 @@ const Navbar = () => {
         <div className='mx-4 sm:mx-8 xl:mx-32 justify-between flex items-center relative'>
         <div className='flex items-end gap-1 sm:gap-4'>
         <h2 className='font-semibold text-2xl sm:text-3xl'>Exclusive</h2>
-        <GiHamburgerMenu className='xl:hidden' size={25} />
+        <div className='relative xl:hidden'>
+        <div onClick={()=>{menu ? setMenu('') : setMenu('hidden')}}>
+        <GiHamburgerMenu size={25} />
+        </div>
+        <div className={`${menu} absolute flex flex-col text-xl gap-4 text-nowrap bg-black py-4 px-4 -left-[117px] sm:-left-[169px] text-white w-52 border border-white rounded-sm`}>
+        <NavLink to='home' className={({ isActive }) =>
+          `${
+            isActive ? "text-gray-400" : ""
+          }`
+        }>Home</NavLink>
+        <hr />
+            <NavLink to='contact' className={({ isActive }) =>
+          `${
+            isActive ? "text-gray-400" : ""
+          }`
+        }>Contact</NavLink>
+        <hr />
+            <NavLink to='about' className={({ isActive }) =>
+          `${
+            isActive ? "text-gray-400" : ""
+          }`
+        }>About</NavLink>
+        <hr />
+            <NavLink to='/' className={({ isActive }) =>
+          `${
+            isActive ? "text-gray-400" : ""
+          }`
+        }>Sign Up</NavLink>
+        </div>
+        </div>
         </div>
         <div className='hidden xl:flex justify-between text-xl gap-12'>
             <NavLink to='home' className={({ isActive }) =>

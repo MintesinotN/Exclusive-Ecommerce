@@ -14,9 +14,10 @@ const Cart = () => {
         const newUrl = `${url}/users/cart/${userId}`;
 
         try {
-          await axios.patch(newUrl, {
+          const res = await axios.patch(newUrl, {
             cartData: cart
           });
+          console.log(res.status)
           alert("Cart data added successfully!");
         } catch (error) {
           console.error("Error adding cart data:", error.message);
