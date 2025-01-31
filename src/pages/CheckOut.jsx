@@ -4,6 +4,7 @@ import InputField from '../components/InputField'
 import CheckOutList from '../components/CheckOutList'
 import Button from '../components/Button'
 import { StoreContext } from '../context/StoreContext'
+import { FaCheck } from "react-icons/fa";
 
 const CheckOut = () => {
 
@@ -67,7 +68,14 @@ const CheckOut = () => {
       <InputField name='city' value={address.city || ''} onchange={OnChangeHandler} labelCol='text-gray-500' label='Town/City*' required='true' />
       <InputField name='phoneNumber' value={address.phoneNumber || ''} onchange={OnChangeHandler} labelCol='text-gray-500' label='Phone Number*' required='true' />
       <InputField name='email' value={address.email || ''} onchange={OnChangeHandler} labelCol='text-gray-500' label='Email Address*' required='true' />
-      <p><span><input type="checkbox" checked={saveInfo} onChange={handleCheckboxChange} className='w-4 h-4 cursor-pointer' /></span> Save this information for faster check-out next time</p>
+      <p>
+        <span>
+        <label class="relative flex items-center justify-center w-6 h-6 bg-gray-200 border border-gray-400 rounded cursor-pointer">
+          <input type="checkbox" checked={saveInfo} onChange={handleCheckboxChange} className='appearance-none checked:bg-green-700 w-full h-full peer' />
+        <span className="absolute hidden peer-checked:block"><FaCheck color='white' /></span>
+        </label>
+        </span> Save this information for faster check-out next time
+      </p>
       </div>
       <div className='basis-1/2 '>
       <div className='lg:w-3/4'>

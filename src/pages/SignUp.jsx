@@ -7,13 +7,16 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [data, setData] = useState({})
+  const [data, setData] = useState({
+    name:"",
+    email:"",
+    password:""
+  })
   const [register,setRegister] = useState(false)
 
-
-  const { url, setUserId } = useContext(StoreContext)
+  const { url, setToken, token } = useContext(StoreContext)
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -22,82 +25,40 @@ const SignUp = () => {
   }
 
   const onSignup = async (event) => {
+    event.preventDefault()
+    let newUrl = url;
 
-    const newUrl = url+"/users";
+    newUrl += "/api/user/register"
 
-    const response = await axios.get(newUrl); // Fetch data
-    const users = response.data.data; // Assuming API returns an array of users or similar structure
-      console.log(users)
-    const user = users.find((u) => u.email === data.email);
+    const response = await axios.post(newUrl,data);
 
-    if (user) {
-      alert("user Already Exist!")
+    if (response.data.success) {
+      setToken(response.data.token);
+      sessionStorage.setItem("token",response.data.token);
+      navigate('/home');
+      console.log(token);
     }
-
-    else if (!data.name || !data.email || !data.password) {
-      alert('All fields are required!');
-      return;
+    else{
+      alert(response.data.message)
     }
-
-    else if (!/\S+@\S+\.\S+/.test(data.email)) {
-      alert('Please enter a valid email address!');
-      setData(data=>({...data,email:""}))
-      return;
-    }
-
-    else {
-    const newUrl = url+"/users";
-    
-    await axios.post(newUrl, data)
-
-    onLogin();
-
-    setData({})
-
-    alert('Form submitted successfully!');
-
-  }
-  }  
+  } 
 
   const onLogin = async (event) => {
+    event.preventDefault()
+    let newUrl = url;
 
-    if (!data.email || !data.password) {
-      alert('All fields are required!');
-      return;
-    }
+    newUrl += "/api/user/login"
 
-    else if (!/\S+@\S+\.\S+/.test(data.email)) {
-      alert('Please enter a valid email address!');
-      setData(data=>({...data,email:"",password:""}))
-      return;
-    }
+    const response = await axios.post(newUrl,data);
 
-    else {
-
-    const newUrl = url+"/users";
-
-    const response = await axios.get(newUrl); // Fetch data
-    const users = response.data.data; // Assuming API returns an array of users or similar structure
-      console.log(users)
-    const user = users.find((u) => u.email === data.email);
-    if (!user){
-      alert("The user doesn't exist!")
-    }
-
-    else{
-    const userC = user.password === data.password ? user._id : null;
-
-    if (userC) {
-      setUserId(userC);
+    if (response.data.success) {
+      setToken(response.data.token);
+      sessionStorage.setItem("token",response.data.token);
       navigate('/home');
-      console.log("Login Successfully!");
-    } else {
-      alert("Invalid Credential!");
     }
+    else{
+      alert(response.data.message)
     }
-
-  }
-
   }
 
 
@@ -111,16 +72,16 @@ const SignUp = () => {
           <div className='flex flex-col gap-5'>
             {
               register ? '' : <label htmlFor="name">
-                <input name='name' value={data.name} onChange={onChangeHandler} type="text" className='outline-none dark:bg-black' placeholder='Name' required />
+                <input name='name' value={data.name} onChange={onChangeHandler} type="text" className='outline-none dark:bg-black w-full px-2' placeholder='Name' required />
                 <hr className='border-gray-300 my-1' />
               </label>
             }
             <label htmlFor="email">
-              <input name='email' value={data.email} onChange={onChangeHandler} type="email" className='outline-none dark:bg-black' placeholder='Email or Phone Number' required />
+              <input name='email' value={data.email} onChange={onChangeHandler} type="email" className='outline-none dark:bg-black w-full px-2' placeholder='Email or Phone Number' required />
               <hr className='border-gray-300 my-1' />
             </label>
             <label htmlFor="password">
-              <input name='password' value={data.password} onChange={onChangeHandler} type="password" className='outline-none dark:bg-black' placeholder='Password' required />
+              <input name='password' value={data.password} onChange={onChangeHandler} type="password" className='outline-none dark:bg-black w-full px-2' placeholder='Password' required />
               <hr className='border-gray-300 my-1' />
             </label>
           </div>
@@ -137,7 +98,7 @@ const SignUp = () => {
             }
           </div>
           {
-            register ? <p className='text-green-800 dark:text-white text-center'>Haven't you account? <span onClick={() => setRegister(false)} className='font-medium dark:text-green-700'>Sign in</span></p> : <p className='text-green-800 dark:text-white text-center'>Already have account? <span onClick={() => setRegister(true)} className='font-medium dark:text-green-700'>Log in</span></p>
+            register ? <p className='text-green-800 dark:text-white text-center'>Haven't you account? <span onClick={() => setRegister(false)} className='font-medium dark:text-green-700 cursor-pointer'>Sign in</span></p> : <p className='text-green-800 dark:text-white text-center'>Already have account? <span onClick={() => setRegister(true)} className='font-medium dark:text-green-700 cursor-pointer'>Log in</span></p>
           }
         </form>
       </div>

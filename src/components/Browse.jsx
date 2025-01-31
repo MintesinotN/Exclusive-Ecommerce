@@ -51,7 +51,7 @@ const Browse = () => {
         </div>
         <div className='flex gap-6 my-10 overflow-x-auto custom-scroll'>
         {CategoriesList.map((category) => 
-          <CategoryList setSelected={setSelected} category={category.category} image={category.image} />
+          <CategoryList key={category.category} setSelected={setSelected} category={category.category} image={category.image} />
         )}
         </div>
         <hr className='my-10' />
@@ -84,7 +84,9 @@ const Browse = () => {
           </div>
           <Button content='Buy Now!' background='bg-orange-400' text='text-white' border='' />
           </div>
+          <div>
           <img src="./assets/Music.png" alt="Musical Instrument" className='mx-auto' />
+          </div>
         </div>
         <div className='my-12'>
         <NoteNB value='Our Products' />
@@ -104,8 +106,8 @@ const Browse = () => {
         </div>
         <div className='flex gap-5 flex-wrap justify-center sm:justify-start'>
           {
-            allProducts.slice(0,countValue).map((product)=>
-              <EachProduct image={product.image} title={product.title} price={product.price} rating={product.rating} />
+            allProducts.slice(0,countValue).map((product,key)=>
+              <EachProduct key={key} image={product.image} title={product.title} price={product.price} rating={product.rating} />
             )
           }
         </div>
@@ -120,7 +122,7 @@ const Browse = () => {
             </div>
         </div>
         </div>
-        <div className='grid grid-cols-4 grid-rows-4 p-8 -mx-2 sm:mx-0'>
+        <div className='grid grid-cols-4 grid-rows-4 p-8 -mx-2 sm:mx-0 justify-items-stretch'>
             <img src='./assets/Arrival1.png' className='bg-black col-span-2 row-span-4' />
             <img src='./assets/Arrival2.png' className='bg-black col-span-2 row-span-2' />
             <img src='./assets/Arrival3.png' className='bg-black row-span-2' />

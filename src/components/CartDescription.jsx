@@ -20,16 +20,16 @@ const CartDescription = ({id,price,image,count}) => {
         <p>{count}</p>
         <div>
           <div onClick={()=>Increment(id)}>
-          <IoIosArrowUp />
+          <IoIosArrowUp className='cursor-pointer' />
           </div>
           <div onClick={()=>Decrement(id)}>
-          <IoIosArrowDown />
+          <IoIosArrowDown className='cursor-pointer' />
           </div>
         </div>
         </div>
         </div>
-        <p className='basis-1/12 pl-2'>${itemPrice*count}</p>
-        <p onClick={()=>Remover(id)} className='basis-1/12 text-center'>X</p>
+        <p className='basis-1/12 pl-2'>${(itemPrice*count).toFixed(2)}</p>
+        <p onClick={()=>Remover(id)} className='basis-1/12 text-center cursor-pointer'>X</p>
     </div>
   )
 }

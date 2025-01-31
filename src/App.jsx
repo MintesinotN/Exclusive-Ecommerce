@@ -14,6 +14,7 @@ import CheckOut from './pages/CheckOut'
 import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 import ProductDetails from './pages/ProductDetails'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   
@@ -23,6 +24,7 @@ const App = () => {
       <ThemeSwap />
       <Header />
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<SignUp />} />
         <Route path='/home' element={<Home />} />

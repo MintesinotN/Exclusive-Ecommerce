@@ -11,18 +11,18 @@ import { useNavigate } from 'react-router-dom';
 const ProductDetails = () => {
 
   const navigate = useNavigate(); 
-  const {detail,AddToCart,setDetail} = useContext(StoreContext);
-  const [countVal, setCountVal] = useState(()=>sessionStorage.getItem("countVal") || 1);
+  const {detail,AddToCart} = useContext(StoreContext);
+  // const [countVal, setCountVal] = useState(()=>sessionStorage.getItem("countVal") || 1);
 
-  const Increment = () => {
-    setCountVal(prev => prev >= 10 ? 10 : prev + 1);
-  }
+  // const Increment = () => {
+  //   setCountVal(prev => prev >= 10 ? 10 : prev + 1);
+  // }
 
-  const Decrement = () => {
-    setCountVal(prev => prev <= 1 ? 1 : prev - 1);
-  }
+  // const Decrement = () => {
+  //   setCountVal(prev => prev <= 1 ? 1 : prev - 1);
+  // }
 
-  useEffect(()=>sessionStorage.setItem("countVal",countVal),[countVal])
+  // useEffect(()=>sessionStorage.setItem("countVal",countVal),[countVal])
 
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>
@@ -70,14 +70,14 @@ const ProductDetails = () => {
         </div>
         <div className='max-sm:flex-col flex gap-2'>
           <div className='flex border border-black dark:bg-white dark:text-black min-h-[54px] max-w-60'>
-            <div onClick={Decrement} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 text-lg'>-</div>
-            <div className='basis-1/2 flex justify-center items-center py-1 border border-black px-12'>{countVal}</div>
-            <div onClick={Increment} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 bg-green-700 text-white text-lg'>+</div>
+            <div className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 text-lg'>-</div>
+            <div className='basis-1/2 flex justify-center items-center py-1 border border-black px-12'>3</div>
+            <div className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 bg-green-700 text-white text-lg'>+</div>
           </div>
           <div className='flex gap-2'>
           <div onClick={()=>{
-            AddToCart(detail.id,countVal);
-            setCountVal(1);
+            AddToCart(detail.id);
+            // setCountVal(1);
             navigate('/cart');
           }}>
           <Button content='Buy Now' background='bg-green-700' text='text-white' />

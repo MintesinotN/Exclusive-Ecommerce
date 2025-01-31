@@ -19,8 +19,8 @@ const Display = () => {
         </div>
         <div className='mt-8 flex gap-5 flex-wrap justify-center sm:justify-start'>
         {
-            selectedOne.map((product)=>
-                <EachProduct onclick={()=>AddToCart(product.id)} customVal="group-hover:flex" id={product.id} image={product.image} title={product.title} price={product.price} rating={product.rating} />
+            selectedOne.map((product,key)=>
+                <EachProduct key={key} onclick={()=>AddToCart(product.id)} customVal="group-hover:flex" id={product.id} image={product.image} title={product.title} price={product.price} rating={product.rating} />
             )
         }
         </div>

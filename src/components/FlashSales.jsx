@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState,useEffect } from 'react'
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import EachProduct from './EachProduct';
@@ -10,6 +10,30 @@ const FlashSales = () => {
 
     const {allProducts} = useContext(StoreContext);
 
+    const [seconds, setSeconds] = useState(new Date().getSeconds());
+    const [minutes, setMinutes] = useState(new Date().getMinutes());
+    const [hours, setHours] = useState(new Date().getHours());
+    const [day, setDay] = useState(new Date().getDate());
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setSeconds(new Date().getSeconds());
+      }, 1000);
+      return () => clearInterval(interval); // Cleanup to avoid memory leaks
+    }, []);
+  
+    useEffect(() => {
+      setMinutes(new Date().getMinutes());
+    }, [seconds])
+
+    useEffect(() => {
+      setHours(new Date().getHours());
+    }, [seconds])
+
+    useEffect(() => {
+      setDay(new Date().getDate());
+    }, [seconds])
+
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 mt-12 sm:mt-32 dark:text-white'>
         <NoteNB value="Today's" />
@@ -19,22 +43,22 @@ const FlashSales = () => {
                 <div className='flex items-end'>
                     <div className='sm:px-2'>
                         <p className='text-xs font-semibold max-sm:hidden'>Days</p>
-                        <h2 className='sm:text-4xl text-xl font-medium'>03</h2>
+                        <h2 className='sm:text-4xl text-xl font-medium'>{day.toString().padStart(2,"0")}</h2>
                     </div>
                     <h2 className='sm:text-3xl text-xl font-medium'>:</h2>
                     <div className='px-2'>
                         <p className='text-xs font-semibold max-sm:hidden'>Hours</p>
-                        <h2 className='sm:text-4xl text-xl font-medium'>23</h2>
+                        <h2 className='sm:text-4xl text-xl font-medium'>{hours.toString().padStart(2,"0")}</h2>
                     </div>
                     <h2 className='sm:text-3xl text-xl font-medium'>:</h2>
                     <div className='px-2'>
                         <p className='text-xs font-semibold max-sm:hidden'>Minutes</p>
-                        <h2 className='sm:text-4xl text-xl font-medium'>19</h2>
+                        <h2 className='sm:text-4xl text-xl font-medium'>{minutes.toString().padStart(2,"0")}</h2>
                     </div>
                     <h2 className='sm:text-3xl text-xl font-medium'>:</h2>
                     <div className='px-2'>
                         <p className='text-xs font-semibold max-sm:hidden'>Seconds</p>
-                        <h2 className='sm:text-4xl text-xl font-medium'>56</h2>
+                        <h2 className='sm:text-4xl text-xl font-medium'>{seconds.toString().padStart(2,"0")}</h2>
                     </div>
                 </div>
             </div>

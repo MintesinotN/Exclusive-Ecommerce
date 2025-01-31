@@ -3,26 +3,11 @@ import CartDescription from '../components/CartDescription'
 import Button from '../components/Button'
 import { StoreContext } from '../context/StoreContext'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 const Cart = () => {
 
     const navigate = useNavigate();
-    const {cart,allProducts,userId,url,sum} = useContext(StoreContext);
-
-    const UpdateCart = async () => {
-        const newUrl = `${url}/users/cart/${userId}`;
-
-        try {
-          const res = await axios.patch(newUrl, {
-            cartData: cart
-          });
-          alert("Cart data added successfully!");
-        } catch (error) {
-          console.error("Error adding cart data:", error.message);
-          alert("Go to SignUp and Login First!")
-        }
-      };
+    const {cart,allProducts,sum} = useContext(StoreContext);
 
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>
@@ -63,7 +48,7 @@ const Cart = () => {
         </div>
         <div className='flex flex-col gap-4 sm:flex-row sm:justify-between'>
         <Button onclick={()=>navigate('/home')} content='Return To Shop' background='dark:white' text='' border='border-2 border-gray-400 rounded-md' />
-        <Button onclick={UpdateCart} content='Update Cart' background='dark:white' text='' border='border-2 border-gray-400 rounded-md' />
+        <Button content='Update Cart' background='dark:white' text='' border='border-2 border-gray-400 rounded-md' />
         </div>
         <hr className='sm:hidden my-12' />
         <div className='my-16 flex justify-between gap-4 flex-wrap'>
