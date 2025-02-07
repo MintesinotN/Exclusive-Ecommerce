@@ -14,6 +14,7 @@ const StoreContextProvider = (props) => {
   const [selected, setSelected] = useState('')
   const [sum,setSum] = useState(0);
   const [cart, setCart] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const [detail,setDetail] = useState(()=>JSON.parse(sessionStorage.getItem("detail")) || {});
 
@@ -36,20 +37,30 @@ const StoreContextProvider = (props) => {
   }
 
   const Increment = async (itemId) => {
+
+    if (isDisabled) return;
+
     if (token) {
-      await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+      setIsDisabled(true);
       setCart((prev)=>prev.map((item) => 
         item.id === itemId ? {...item, count: item.count + 1} : item))
+      await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+      setTimeout(() => setIsDisabled(false), 2000);
     }
   }
 
   const Decrement = async (itemId) => {
+
+    if (isDisabled) return;
+
     const val = cart.find(item => item.id === itemId);
     const countVal = val.count
     if (token && countVal > 1) {
-      await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+      setIsDisabled(true);
       setCart((prev)=>prev.map((item) => 
         item.id === itemId ? {...item, count: item.count - 1} : item))
+      await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+      setTimeout(() => setIsDisabled(false), 1000);
     }
   }
 
