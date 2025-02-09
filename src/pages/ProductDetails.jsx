@@ -12,17 +12,6 @@ const ProductDetails = () => {
 
   const navigate = useNavigate(); 
   const {detail,AddToCart} = useContext(StoreContext);
-  // const [countVal, setCountVal] = useState(()=>sessionStorage.getItem("countVal") || 1);
-
-  // const Increment = () => {
-  //   setCountVal(prev => prev >= 10 ? 10 : prev + 1);
-  // }
-
-  // const Decrement = () => {
-  //   setCountVal(prev => prev <= 1 ? 1 : prev - 1);
-  // }
-
-  // useEffect(()=>sessionStorage.setItem("countVal",countVal),[countVal])
 
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>

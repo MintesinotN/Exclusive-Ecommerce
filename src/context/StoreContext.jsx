@@ -30,11 +30,8 @@ const StoreContextProvider = (props) => {
     const val = cart.find(item => item.id === itemId)
     if (token && !val) {
       setCart((prev)=>([...prev,{id:itemId, count:1}]))
-      const response = await axios.post(url+"/api/cart/firstAdd",{itemId},{headers:{token}})
-      console.log(response.data.success)
+      await axios.post(url+"/api/cart/firstAdd",{itemId},{headers:{token}})    }
     }
-    // console.log("my cart",cart)
-  }
 
   const Increment = async (itemId) => {
 
@@ -81,7 +78,6 @@ const StoreContextProvider = (props) => {
     const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
     console.log(response.data.cartData)
     setCart(response.data.cartData);
-    console.log(cart);
   }
 
   useEffect(() => {

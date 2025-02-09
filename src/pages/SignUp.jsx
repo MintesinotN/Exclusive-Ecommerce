@@ -91,10 +91,10 @@ const SignUp = () => {
                 <Button onclick={onLogin} content='Login' background='bg-green-700' text='w-full text-white' />
                 <Button content='Forget Password?' text='text-green-600 w-full border' background='dark:bg-white' />
               </div> :
-                <div className='flex flex-col gap-4'>
-                  <Button onclick={onSignup} content='Create Account' background='bg-green-700 w-full' text='text-white' />
-                  <Button content={<div className='flex items-center gap-2'><FcGoogle size={24} /> Sign up with Google</div>} border='border-2 border-gray-200 w-full' />
-                </div>
+              <div className='flex flex-col gap-4'>
+                <Button onclick={onSignup} content='Create Account' background='bg-green-700 w-full' text='text-white' />
+                <Button content={<div className='flex items-center gap-2'><FcGoogle size={24} /> Sign up with Google</div>} border='border-2 border-gray-200 w-full' />
+              </div>
             }
           </div>
           {
