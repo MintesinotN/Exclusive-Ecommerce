@@ -36,7 +36,6 @@ const SignUp = () => {
       setToken(response.data.token);
       sessionStorage.setItem("token",response.data.token);
       navigate('/home');
-      console.log(token);
     }
     else{
       alert(response.data.message)

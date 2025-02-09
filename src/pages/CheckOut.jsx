@@ -53,8 +53,6 @@ const CheckOut = () => {
     }}
   };
 
-  console.log(address)
-
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>
     <p><span className='text-gray-500'>Account / My Account / Product / View Cart /</span> CheckOut</p>
