@@ -11,7 +11,11 @@ import { useNavigate } from 'react-router-dom';
 const ProductDetails = () => {
 
   const navigate = useNavigate(); 
-  const {detail,AddToCart} = useContext(StoreContext);
+  const {detail,Increment,Decrement,cart} = useContext(StoreContext);
+
+  console.log(cart)
+  const count = cart.find(item => item.id === detail.id)?.count || 0;
+  console.log(count);
 
   return (
     <div className='xl:mx-32 mx-2 sm:mx-8 dark:text-white py-12'>
@@ -59,14 +63,12 @@ const ProductDetails = () => {
         </div>
         <div className='max-sm:flex-col flex gap-2'>
           <div className='flex border border-black dark:bg-white dark:text-black min-h-[54px] max-w-60'>
-            <div className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 text-lg'>-</div>
-            <div className='basis-1/2 flex justify-center items-center py-1 border border-black px-12'>3</div>
-            <div className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 bg-green-700 text-white text-lg'>+</div>
+            <div onClick={()=>Decrement(detail.id)} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 text-lg'>-</div>
+            <div className='basis-1/2 flex justify-center items-center py-1 border border-black px-12'>{count}</div>
+            <div onClick={()=>Increment(detail.id)} className='basis-1/4 flex justify-center items-center py-1 border border-black px-6 bg-green-700 text-white text-lg'>+</div>
           </div>
           <div className='flex gap-2'>
           <div onClick={()=>{
-            AddToCart(detail.id);
-            // setCountVal(1);
             navigate('/cart');
           }}>
           <Button content='Buy Now' background='bg-green-700' text='text-white' />

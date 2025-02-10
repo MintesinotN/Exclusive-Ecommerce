@@ -89,6 +89,7 @@ const StoreContextProvider = (props) => {
     const product = allProducts.find(pro => pro.id === itemId);
     setDetail(product);
     navigate('/product-details');
+    AddToCart(itemId);
   }
 
   useEffect(()=>sessionStorage.setItem("detail",JSON.stringify(detail)),[detail])
