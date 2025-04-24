@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { StoreContext } from '../context/StoreContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
@@ -36,9 +37,10 @@ const SignUp = () => {
       setToken(response.data.token);
       sessionStorage.setItem("token",response.data.token);
       navigate('/home');
+      toast.success('Login successful!');
     }
     else{
-      alert(response.data.message)
+      toast.error(response.data.message || 'Login failed');
     }
   } 
 
@@ -54,9 +56,10 @@ const SignUp = () => {
       setToken(response.data.token);
       sessionStorage.setItem("token",response.data.token);
       navigate('/home');
+      toast.success('Login successful!');
     }
     else{
-      alert(response.data.message)
+      toast.error(response.data.message || 'Login failed');
     }
   }
 

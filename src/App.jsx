@@ -15,12 +15,15 @@ import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 import ProductDetails from './pages/ProductDetails'
 import ScrollToTop from './components/ScrollToTop'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   
 
   return (
     <div className="relative min-h-screen dark:bg-black bg-white">
+      <ToastContainer position="top-right" autoClose={3000} />
       <ThemeSwap />
       <Header />
       <Navbar />

@@ -73,12 +73,12 @@ const Navbar = () => {
             isActive ? "text-gray-400" : ""
           }`
         }>About</NavLink>
-        <hr />
+        {/* <hr />
             <NavLink to='/' className={({ isActive }) =>
           `${
             isActive ? "text-gray-400" : ""
           }`
-        }>Sign Up</NavLink>
+        }>Sign Up</NavLink> */}
         </div>
         </div>
         </div>
@@ -95,14 +95,14 @@ const Navbar = () => {
         }>Contact</NavLink>
             <NavLink to='about' className={({ isActive }) =>
           `${
-            isActive ? "underline underline-offset-8 decoration-slate-900 dark:decoration-slate-50" : `${!token ? 'invisible':''}`
+            isActive ? "underline underline-offset-8 decoration-slate-900 dark:decoration-slate-50 ${!token ? 'invisible':''}" : `${!token ? 'invisible':''}`
           }`
         }>About</NavLink>
-            <NavLink to='/' className={({ isActive }) =>
+            {/* <NavLink to='/' className={({ isActive }) =>
           `${
             isActive ? `underline underline-offset-8 decoration-slate-900 dark:decoration-slate-50 ${!token ? 'invisible':''}` : `${!token ? 'invisible':''}`
           }`
-        }>Sign Up</NavLink>
+        }>Sign Up</NavLink> */}
         </div>
         <div className='flex gap-4 items-center'>
             <label className='sm:flex items-center hidden bg-gray-100 py-2 px-4' htmlFor="search">
